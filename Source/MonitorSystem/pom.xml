@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>hcmus</groupId>
+    <artifactId>MonitorSystem</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>19</maven.compiler.source>
+        <maven.compiler.target>19</maven.compiler.target>
+        <exec.mainClass>hcmus.server.Server</exec.mainClass>
+    </properties>
+    <name>MonitorSystem</name>
+    <build>
+
+        <plugins>
+
+            <plugin>
+
+                <artifactId>maven-assembly-plugin</artifactId>
+
+                <version>2.4</version>
+
+                <configuration>
+
+                    <descriptorRefs>
+
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+
+                    </descriptorRefs>
+
+                    <archive>
+
+                        <manifest>
+
+                            <mainClass>hcmus.server.Server</mainClass>
+
+                        </manifest>
+
+                    </archive>
+
+                </configuration>
+
+                <executions>
+
+                    <execution>
+
+                        <id>test</id>
+
+                        <phase>package</phase>
+
+                        <goals>
+
+                            <goal>single</goal>
+
+                        </goals>
+
+                    </execution>
+
+                </executions>
+
+            </plugin>
+        </plugins>
+        
+        <resources>
+            <resource>
+                <directory>src/main/java/hcmus/server</directory>
+                <includes>
+                    <include>**/*.png</include> 
+                </includes>
+                <targetPath>hcmus/server</targetPath>
+            </resource>
+        </resources>
+    </build>
+</project>
